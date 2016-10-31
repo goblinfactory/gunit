@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Gunit.Core", "Gunit.Core\Gunit.Core.csproj", "{155ED585-0525-45A2-8169-046B927BE70B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "solution items", "solution items", "{07CC4206-EC05-43AC-AC80-F19A55E5FBA2}"
+	ProjectSection(SolutionItems) = preProject
+		..\docs\more-examples.md = ..\docs\more-examples.md
+		..\README.md = ..\README.md
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Gunit.Core.Tests", "Gunit.Core.Tests\Gunit.Core.Tests.csproj", "{2F6F3165-ADD4-43CB-9B8B-4507E8AFDFA7}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{155ED585-0525-45A2-8169-046B927BE70B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{155ED585-0525-45A2-8169-046B927BE70B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{155ED585-0525-45A2-8169-046B927BE70B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{155ED585-0525-45A2-8169-046B927BE70B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2F6F3165-ADD4-43CB-9B8B-4507E8AFDFA7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2F6F3165-ADD4-43CB-9B8B-4507E8AFDFA7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2F6F3165-ADD4-43CB-9B8B-4507E8AFDFA7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2F6F3165-ADD4-43CB-9B8B-4507E8AFDFA7}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
