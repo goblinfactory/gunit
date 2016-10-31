@@ -1,0 +1,2 @@
+# gunit
+Goblin-Unit, is Goblinfactory's open source low ceremony zero dependency cross platform, specifically mobile (android), testing library. It includes a fluent `Verify` object comparer syntax similar to fluentassertions to be used to aid comprehensive object verification in mobile applications and libraries, or anywhere where other libraries like [fluentassertions]() cannot be used due to dependency restrictions.
