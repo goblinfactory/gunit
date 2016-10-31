@@ -1,26 +1,27 @@
 # Gunit
 
-**Gunit** pronounced ***Gunn-itt*** is [Goblinfactory's](http://www.goblinfactory.co.uk) low ceremony, open source, zero dependency, 
-cross platform (specifically mobile android) testing library. Gunit includes a fluent `Verify` object comparer that provides comprehensive object verification in mobile applications and libraries
+**Gunit** pronounced ***Gunn-itt*** . A low ceremony, open source, zero dependency, 
+cross platform (specifically mobile android) testing library. Gunit includes a fluent `Verify` object comparer that provides 
+object property equality verification in mobile applications and libraries,
  or anywhere where other libraries like [fluentassertions]() cannot be used due to dependancy restrictions.
 
-The package also includes `Ensure` debugging-friendly replacement for NUnit's `Assert.That`.
+The package also includes `Ensure`, a debugging-friendly alernative to NUnit's `Assert.That`.
 
 ### Getting Started
 
-1. Install package
+1) Install package
 
 ```
 > Install-package Verify
 ```
 
-2. On global test start, tell Verify what platform you're using by wiring up the default platform Assert. Example below wired us Nunit.
+2) On global test start, tell Verify what platform you're using by wiring up the default platform Assert. Example below wired us Nunit.
 
 ```
 Gunit.Init(Assert.Fail);
 ``` 
 
-3. **start verifying...**
+3) **start verifying...**
 
 
 ```
