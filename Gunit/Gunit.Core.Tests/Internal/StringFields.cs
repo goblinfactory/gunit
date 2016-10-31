@@ -13,7 +13,7 @@ namespace Gunit.Core.Tests.Internal
         public byte Loop { get; set; }
         public float Distance { get; set; }
         public char Initial { get; set; }
-        public char InitialNullable { get; set; }
+        public char? InitialNullable { get; set; }
         public bool Done { get; set; }
         public string Name { get; set; }
         public decimal Amount { get; set; }

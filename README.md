@@ -1,6 +1,6 @@
 # Gunit
 
-**Gunit** pronounced ***Gunn-itt*** . A low ceremony, open source, zero dependency, 
+**Gunit** pronounced ***Gunn-itt*** . A (good enough) low ceremony, open source, zero dependency, 
 cross platform (specifically mobile android) testing library. Gunit includes a fluent `Verify` object comparer that provides 
 object property equality verification in mobile applications and libraries,
  or anywhere where other libraries like [fluentassertions]() cannot be used due to dependancy restrictions.
@@ -9,26 +9,21 @@ The package also includes `Ensure`, a debugging-friendly alernative to NUnit's `
 
 ### Getting Started
 
-1) Install package
+Install package
 
 ```
 > Install-package Verify
 ```
 
-2) On global test start, tell Verify what platform you're using by wiring up the default platform Assert. Example below wired us Nunit.
 
-```
-Gunit.Init(Assert.Fail);
-``` 
-
-3) **start verifying...**
+**start verifying...**
 
 
 ```
   var c1 = new Cat(1,"Fred", Kittens = new [] { "Slippers", "Buttons" });
   var c2 = new Cat(1,"Fred", Kittens = new [] { "Slippers", "Buttons" });
 
-  Verify.AreSame(c1,c2);
+  Verify.VerifySame(c1,c2);
   // or
   c1.VerifySame(c2);
 
@@ -53,8 +48,8 @@ Gunit.Init(Assert.Fail);
 
  ```
  c1.VerifySame(c2, ToleranceMs = 200);
- // or configure when initialising 
- Gunit.Init(new Config { ToleranceMs = 200, MaxDepth = 10 }, m=> Assert.Fail(m));
+ // or configure globally
+ Gunit.Config = new Config() { ToleranceMs = 200, MaxDepth = 10 };
  ```
 
  [More examples](docs/more-examples.md)

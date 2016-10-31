@@ -37,8 +37,11 @@
     <!-- A reference to the entire .NET Framework is automatically included -->
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Ensurer.cs" />
+    <Compile Include="EnsureException.cs" />
+    <Compile Include="VerifyException.cs" />
+    <Compile Include="Comparer.cs" />
     <Compile Include="Config.cs" />
-    <Compile Include="Fail.cs" />
     <Compile Include="Gunit.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="StringTypes.cs" />

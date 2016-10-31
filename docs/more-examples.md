@@ -20,6 +20,8 @@ If a deeply nested property on an object is different between two objects, Verif
 ```
   c2.Kittens["Slippers"].Age = 10;
 
+  // differences collection is not implemented yet!
+  // ----------------------------------------------
   c1.Differences(c2).Ensure( 
         d=> d.Length    == 1,
         d=> d[0].Crumb  = "Cat.Kittens.[1].Age",

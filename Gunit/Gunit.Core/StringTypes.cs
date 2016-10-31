@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -41,6 +42,8 @@ namespace Gunit.Core
 
         public static bool Comparable(this Type type)
         {
+            // mmm, check if code below works in Droid?
+            if (type.GetTypeInfo().IsEnum) return true;
             var name = type.Name.ToLower();
             return _types.Contains(name);
         }
