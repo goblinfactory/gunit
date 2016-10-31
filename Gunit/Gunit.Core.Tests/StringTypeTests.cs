@@ -33,7 +33,7 @@ namespace Gunit.Core.Tests
         [TestCase(15, "LapsNullable", "intNullable", 12, 40.231F,'C', 'C', true,"Fred","3.14",Weekday.Friday,20230, 98765432154321, 2,null, "31/10/2016 18:41:24",true)]
         [TestCase(16, "Born","DateTime", 12, 40.231F,'C', 'C', true,"Fred","3.14",Weekday.Friday,20230, 98765432154321, 2,2, "31/10/2015 18:41:24",true)]
         [TestCase(17, "Born","DateTime", 12, 40.231F,'C', 'C', true,"Fred","3.14",Weekday.Friday,20230, 98765432154321, 2,2, "31/10/2015",true)]
-        public void simple_properties_of_pocos_tests(
+        public void scalar_property_tests(
                     int testnum,
                     string field,
                     string type,
