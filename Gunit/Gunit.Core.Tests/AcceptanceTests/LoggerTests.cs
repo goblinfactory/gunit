@@ -25,10 +25,10 @@ namespace Gunit.Core.Tests
             var logger = new Logger(Level.Debug);
             c1.VerifySame(c2, log:logger);
 
-            Assert.AreEqual("     1. Cat", logger.Logs[0]);
+            Assert.AreEqual("     Cat", logger.Logs[0]);
             Assert.AreEqual(3, logger.Logs.Length);
-            Assert.AreEqual("          2. Age", logger.Logs[1]);
-            Assert.AreEqual("          3. Name", logger.Logs[2]);
+            Assert.AreEqual("          Cat.Age", logger.Logs[1]);
+            Assert.AreEqual("          Cat.Name", logger.Logs[2]);
         }
     }
 }
