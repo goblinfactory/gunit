@@ -37,6 +37,7 @@
     <!-- A reference to the entire .NET Framework is automatically included -->
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Internal\Comparers\TimeSpanComparer.cs" />
     <Compile Include="Internal\Comparers\DateTimeComparer.cs" />
     <Compile Include="Internal\Comparers\ListComparer.cs" />
     <Compile Include="Internal\Comparers\NullComparer.cs" />

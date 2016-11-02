@@ -58,7 +58,6 @@ namespace Gunit.Core
                     var propCrumb = $"{crumb}.{name}";
                     
                     var newstate = state.CreateChildState(prop.Type, name, prop.LHS, prop.RHS, propCrumb);
-                    // DATETIME
 
                     // NULLS
                     // -----
@@ -67,6 +66,10 @@ namespace Gunit.Core
                     //DATETIME 
                     // -------
                     if (DateTimeComparer.Compare(newstate)) continue;
+
+                    //TIMESPAN
+                    // -------
+                    if (TimeSpanComparer.Compare(newstate)) continue;
 
                     // STRING COMPARABLE
                     // -----------------
