@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Gunit.Core.Tests.Internal;
 using NUnit.Framework;
 using Gunit.Core;
+using Gunit.Core.Logging;
 using Gunit.Core.Packages.MUnit;
 
 namespace Gunit.Core.Tests
@@ -15,7 +16,7 @@ namespace Gunit.Core.Tests
     public class StringTypeTests
     {
 
-        [Test]
+    [Test]
         [TestCase(1, "PASS", "NA", 12, 40.231F, 'C', 'C', true, "Fred", "3.14", Weekday.Friday, 20230, 98765432154321, 2, 2, "31/10/2016 18:41:24", false)]
         [TestCase(2, "Born", "DateTime", 12, 40.231F, 'C', 'C', true, "Fred", "3.14", Weekday.Friday, 20230, 98765432154321, 2, 2, "31/10/2016 18:41:25", true)] // 1 second difference
         [TestCase(3, "Loop","byte", 99, 40.231F,'C', 'C', true,"Fred","3.14",Weekday.Friday,20230, 98765432154321, 2,2, "31/10/2016 18:41:24",true)]

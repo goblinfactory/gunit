@@ -37,12 +37,19 @@
     <!-- A reference to the entire .NET Framework is automatically included -->
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Internal\Comparers\DateTimeComparer.cs" />
+    <Compile Include="Internal\Comparers\ListComparer.cs" />
+    <Compile Include="Internal\Comparers\NullComparer.cs" />
     <Compile Include="Ensurer.cs" />
     <Compile Include="EnsureException.cs" />
+    <Compile Include="Internal\PropertyHelper.cs" />
+    <Compile Include="Logging\ILog.cs" />
+    <Compile Include="Logging\Level.cs" />
+    <Compile Include="Logging\Logger.cs" />
+    <Compile Include="Internal\State.cs" />
+    <Compile Include="Internal\Comparers\StringComparer.cs" />
     <Compile Include="VerifyException.cs" />
     <Compile Include="Comparer.cs" />
-    <Compile Include="Config.cs" />
-    <Compile Include="Gunit.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="StringTypes.cs" />
   </ItemGroup>

@@ -15,6 +15,11 @@ namespace Gunit.Core
         public string ExpectedLeft { get; private set; }
         public string ActualRight { get; private set; }
 
+        public override string ToString()
+        {
+            return Format(Crumb, ExpectedLeft, ActualRight);
+        }
+
         public VerifyException(string crumb, string fieldName, string expectedLeft, string actualRight) : base(Format(crumb,expectedLeft,actualRight))
         {
             Crumb = crumb;

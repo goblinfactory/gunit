@@ -9,6 +9,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "solution items", "solution 
 	ProjectSection(SolutionItems) = preProject
 		..\docs\more-examples.md = ..\docs\more-examples.md
 		..\README.md = ..\README.md
+		..\roadmap.md = ..\roadmap.md
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Gunit.Core.Tests", "Gunit.Core.Tests\Gunit.Core.Tests.csproj", "{2F6F3165-ADD4-43CB-9B8B-4507E8AFDFA7}"

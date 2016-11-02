@@ -1,8 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics.Contracts;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Gunit.Core.Internal;
+using Gunit.Core.Internal.Comparers;
+using Gunit.Core.Logging;
+using StringComparer = Gunit.Core.Internal.Comparers.StringComparer;
 
 namespace Gunit.Core
 {
@@ -10,59 +15,71 @@ namespace Gunit.Core
 
     namespace Packages.MUnit
     {
+        public static class StringExtensions
+        {
+            public static string Indent(this string src, int indent)
+            {
+                return $"{new String(' ', 5*indent)}{src}";
+            }
+        }
+
         public static class Comparer
         {
-            public class Continue : Exception {}
-
-            public static void VerifySame(this object left, object right, int maxDepth = 5) 
+            public static void VerifySame(this object left, object right, int maxDepth = 5, int toleranceMs = 200, ILog log = null)
             {
-                _verifySame(left.GetType().Name, left, right,"", maxDepth);
+                ILog logger = log ?? new Logger(Logger.DefaultLevel);
+                var type = left.GetType();
+                var state = new State(type, type.Name, left, right, 1, maxDepth, toleranceMs, "", logger);
+                _verifySame(state);
             }
 
-            private static void _verifySame(string fieldName, object left, object right, string crumb, int maxDepth)
+            private static void _verifySame(State state)
             {
-                if (maxDepth <= 0)
+                object left = state.Left;
+                object right = state.Right;
+                string crumb = state.Crumb;
+                int maxDepth = state.MaxDepth;
+                var log = state.Log;
+                int depth = state.CurrentDepth;
+                log.Info(state.ToString(),state.CurrentDepth);
+                if (depth > maxDepth)
                 {
-                    throw new VerifyException($"Maximum object depth of exceeded. {crumb}","NA",  "NA", "NA");
+                    var msg = $"Maximum object depth of {state.MaxDepth} exceeded. {crumb}";
+                    throw new VerifyException(msg,"NA",  "NA", "NA");
                 }
 
-                if (BothNull(fieldName,left,right,crumb)) return;
+                if (NullComparer.BothNull(state)) return;
 
                 var type = left.GetType();
-
-
-                foreach (var property in type.GetRuntimeProperties().Where(p=> !p.GetMethod.IsStatic))
+                var properties = PropertyHelper.ComparableProperties(type, left, right);
+                foreach (var prop in properties)
                 {
-                    var ptype = property.PropertyType;
-                    // skip IList
-                    if (ptype.Name.Contains("IList`")) continue;
-                    var name = property.Name;
+                    var name = prop.Name;
                     var propCrumb = $"{crumb}.{name}";
-                    var lhs = property.GetValue(left);
-                    var rhs = property.GetValue(right);
+                    
+                    var newstate = state.CreateChildState(prop.Type, name, prop.LHS, prop.RHS, propCrumb);
+                    // DATETIME
 
-                    if (BothNull(name, lhs, rhs, propCrumb)) continue;
+                    // NULLS
+                    // -----
+                    if (NullComparer.BothNull(newstate)) continue;
 
-                    if (ptype.Comparable())
-                    {
-                        if (!lhs.ToString().Equals(rhs.ToString()))                        
-                            throw new VerifyException(propCrumb,name, lhs.ToString(), rhs.ToString());
-                        continue;
-                    }
-                    // process child objects
-                    // ---------------------
-                    _verifySame(name, lhs, rhs, propCrumb, maxDepth - 1);
+                    //DATETIME 
+                    // -------
+                    if (DateTimeComparer.Compare(newstate)) continue;
+
+                    // STRING COMPARABLE
+                    // -----------------
+                    if (StringComparer.CompareByStrings(newstate)) continue;
+
+                    // LISTS
+                    if (name.Contains("IList`")) continue;
+
+                    // CLASS
+                    // -----
+                    
+                    _verifySame(newstate);
                 }
-            }
-
-            private static bool BothNull(string fieldName, object left, object right, string crumb)
-            {
-                if (left == null && right == null) return true;
-                if (left == null)
-                    throw new VerifyException(crumb, fieldName, "NULL", "NOTNULL");
-                if (right == null)
-                    throw new VerifyException(crumb, fieldName, "NOTNULL", "NULL");
-                return false;
             }
         }
     }
