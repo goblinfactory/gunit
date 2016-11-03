@@ -1,13 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using FluentAssertions;
 using Gunit.Core.Packages.MUnit;
 using NUnit.Framework;
 
-namespace Gunit.Core.Tests
+namespace Gunit.Core.Tests.AcceptanceTests
 {
     public class DateTimeToleranceTests
     {
