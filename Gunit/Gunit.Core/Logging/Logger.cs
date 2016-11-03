@@ -10,7 +10,7 @@ namespace Gunit.Core.Logging
         public static Level DefaultLevel = Level.Off;
 
         private readonly Level _level;
-        private static List<string> _logs = new List<string>();
+        private  List<string> _logs = new List<string>();
 
         public Logger(Level level)
         {
