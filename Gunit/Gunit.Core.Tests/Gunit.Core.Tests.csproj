@@ -53,6 +53,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AcceptanceTests\DateTimeToleranceTests.cs" />
+    <Compile Include="AcceptanceTests\InterfacesShouldBeComparable.cs" />
     <Compile Include="AcceptanceTests\TimespanToleranceTests.cs" />
     <Compile Include="Internal\StringFields.cs" />
     <Compile Include="AcceptanceTests\LoggerTests.cs" />

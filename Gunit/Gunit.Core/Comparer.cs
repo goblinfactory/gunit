@@ -51,6 +51,7 @@ namespace Gunit.Core
                 if (NullComparer.BothNull(state)) return;
 
                 var type = left.GetType();
+                
                 var properties = PropertyHelper.ComparableProperties(type, left, right);
                 foreach (var prop in properties)
                 {
