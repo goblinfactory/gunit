@@ -21,7 +21,6 @@ namespace Gunit.Core.Internal
 
         public static IEnumerable<CompareProperty> ComparableProperties(Type type, object left, object right)
         {
-            IsInterface(type);
             var runtimeProps = type.GetRuntimeProperties().Where(p => !p.GetMethod.IsStatic);
             var props = runtimeProps
                 .Select(p => new CompareProperty()
@@ -49,15 +48,6 @@ namespace Gunit.Core.Internal
             return allProps;
         }
 
-        public static bool IsInterface<T>(T src)
-        {
-            var t = typeof(T);
-            return false;
-        }
-
-        //private static IEnumerable<CompareProperty> ComparableInterfaceProperties(Type type, object left, object right)
-        //{
-        //}
 
 
         public static IEnumerable<string> ComparablePropertyNames(object src)
