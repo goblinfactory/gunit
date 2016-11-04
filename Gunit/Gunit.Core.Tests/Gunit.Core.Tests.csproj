@@ -59,6 +59,7 @@
     <Compile Include="AcceptanceTests\LoggerTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="AcceptanceTests\StringTypeTests.cs" />
+    <Compile Include="UnitTests\ConfirmWeCanExtractPropertyListFromInterfaceOrClass.cs" />
     <Compile Include="UnitTests\PropertyHelperTests.cs" />
     <Compile Include="_SetupFixture.cs" />
   </ItemGroup>

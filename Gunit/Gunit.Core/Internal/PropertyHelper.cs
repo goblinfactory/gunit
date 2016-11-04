@@ -19,8 +19,9 @@ namespace Gunit.Core.Internal
             public object RHS { get; set; }
         }
 
-        public static IEnumerable<CompareProperty> ComparableProperties(Type type, object left, object right)
+        public static IEnumerable<CompareProperty> ComparableProperties(object left, object right)
         {
+            var type = left.GetType();
             var runtimeProps = type.GetRuntimeProperties().Where(p => !p.GetMethod.IsStatic);
             var props = runtimeProps
                 .Select(p => new CompareProperty()
@@ -52,7 +53,7 @@ namespace Gunit.Core.Internal
 
         public static IEnumerable<string> ComparablePropertyNames(object src)
         {
-            var cp = ComparableProperties(src.GetType(), src, src);
+            var cp = ComparableProperties(src, src);
             var names = cp.Select(p => p.Name);
             return names.ToArray();
         }

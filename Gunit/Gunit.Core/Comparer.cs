@@ -49,10 +49,8 @@ namespace Gunit.Core
                 }
 
                 if (NullComparer.BothNull(state)) return;
-
-                var type = left.GetType();
                 
-                var properties = PropertyHelper.ComparableProperties(type, left, right);
+                var properties = PropertyHelper.ComparableProperties(left, right);
                 foreach (var prop in properties)
                 {
                     var name = prop.Name;
